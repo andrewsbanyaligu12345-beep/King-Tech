@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>King Tech IT Services | Portfolio</title>
+  <style>
+    :root {
+      --bg: #3909f7;
+      --bg-soft: #111827;
+      --card: #0f172a;
+      --line: #1f2937;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #22d3ee;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, var(--bg), #0a1020 60%, #08111f);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(11, 18, 32, .85);
+      border-bottom: 1px solid var(--line);
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: .5px;
+      color: var(--accent);
+    }
+
+    .nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
+
+    .nav a:hover {
+      color: var(--accent)
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: auto;
+      padding: 72px 20px 56px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid #143447;
+      background: rgba(56, 189, 248, .08);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.08;
+      margin: 0 0 14px;
+    }
+
+    .typing {
+      color: var(--accent);
+      font-weight: 700;
+      border-right: 3px solid var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      width: 0;
+      animation: typing 6s steps(24, end) infinite, blink .8s infinite;
+    }
+
+    @keyframes typing {
+      0% {
+        width: 0
+      }
+
+      35% {
+        width: 24ch
+      }
+
+      65% {
+        width: 24ch
+      }
+
+      100% {
+        width: 0
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent
+      }
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: #0c1628;
+      transition: .25s;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #001018;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px)
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, #0f172a, #0b1220);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-card:before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top right, rgba(34, 211, 238, .18), transparent 45%),
+        radial-gradient(circle at bottom left, rgba(56, 189, 248, .18), transparent 45%);
+    }
+
+    .avatar {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      color: #001018;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card h3,
+    .hero-card p,
+    .hero-card .mini {
+      position: relative;
+      z-index: 1;
+    }
+
+    .mini {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .mini span {
+      background: #0b1324;
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 20px 70px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin: 0 0 10px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      margin: 0 0 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--card), #0b1220);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #18465e;
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, .12);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .card h3 {
+      margin: 0 0 8px
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted)
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .thumb {
+      height: 150px;
+      background: linear-gradient(135deg, #122033, #0b1220);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: .5px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project .content {
+      padding: 18px
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px
+    }
+
+    .tags span {
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 8px;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .contact .card p {
+      margin: 10px 0
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #0b1324;
+      color: var(--text);
+      outline: none;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      padding: 24px 20px 40px;
+    }
+
+    @media (max-width: 900px) {
+
+      .hero,
+      .contact {
+        grid-template-columns: 1fr
+      }
+
+      .projects {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 38px
+      }
+
+      .grid,
+      .projects {
+        grid-template-columns: 1fr
+      }
+
+      .nav {
+        flex-direction: column;
+        gap: 12px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">KING TECH IT SERVICES</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div>
+      <span class="badge">Available for freelance work</span>
+      <h1>Building modern digital experiences for people and businesses.</h1>
+      <h2><span class="typing">Web Developer & Graphic Designer</span></h2>
+      <p>
+        I am an IT student, web developer, graphic designer, and data reseller based in Ghana.
+        I create responsive websites, attractive branding graphics, and reliable digital solutions
+        that help individuals and businesses grow online.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#portfolio">View My Work</a>
+        <a class="btn" href="#contact">Contact Me</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="avatar">KT</div>
+      <h3>King Tech IT Services</h3>
+      <p>IT Student • Web Developer • Graphic Designer • Data Reseller & many more!</p>
+      <div class="mini">
+        <span>HTML & CSS</span>
+        <span>JavaScript</span>
+        <span>Photoshop</span>
+        <span>Branding</span>
+      </div>
+    </div>
+  </main>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-sub">Passionate about technology, creativity, and helping businesses grow online.</p>
+    <div class="card">
+      <p>
+        Welcome to <strong>King Tech IT Services</strong>. I enjoy combining technology and design to build websites,
+        create flyers and logos, and provide affordable data services. My goal is to deliver clean, modern,
+        and user-friendly solutions that make a strong first impression and work smoothly on both phones and laptops.
+      </p>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title">Services</h2>
+    <p class="section-sub">What I can do for you.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Web Development</h3>
+        <p>Responsive portfolio, business, and personal websites built with modern web technologies.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>Graphic Design</h3>
+        <p>Flyers, logos, social media posts, banners, and branding materials that stand out.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📶</div>
+        <h3>Data Reselling</h3>
+        <p>Affordable MTN, Telecel, and AirtelTigo data bundle services with fast delivery.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🛠️</div>
+        <h3>IT Support</h3>
+        <p>Software installation, setup, troubleshooting, and basic computer assistance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <h2 class="section-title">Portfolio</h2>
+    <p class="section-sub">A few sample projects and design concepts.</p>
+    <div class="projects">
+      <article class="card project">
+        <div class="thumb">WEBSITE PROJECT</div>
+        <div class="content">
+          <h3>Business Website</h3>
+          <p>Modern responsive website for a local business with mobile-friendly design.</p>
+          <div class="tags"><span>HTML</span><span>CSS</span><span>Responsive</span></div>
+        </div>
+      </article>
+
+      <article class="card project">
+        <div class="thumb">GRAPHIC DESIGN</div>
+        <div class="content">
+          <h3>Event Flyer</h3>
+          <p>Clean promotional flyer designed for social media and print advertising.</p>
+          <div class="tags"><span>Photoshop</span><span>Branding</span></div>
+        </div>
+      </article>
+
+      <article class="card project">
+        <div class="thumb">DATA BUSINESS</div>
+        <div class="content">
+          <h3>Data Store</h3>
+          <p>Simple digital product layout for selling network data bundles online.</p>
+          <div class="tags"><span>UI Design</span><span>Business</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-sub">Let’s work together.</p>
+
+    <div class="contact">
+      <div class="card">
+        <h3>Get in touch</h3>
+        <p><strong>Phone:</strong> +233 59 594 2482</p>
+        <p><strong>Email:</strong> andrewsbanyaligu12345@gmail.com</p>
+        <p><strong>Location:</strong> Langbinsi, Ghana</p>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/233595942482">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Send a message</h3>
+        <form>
+          <input type="text" placeholder="Your name" />
+          <input type="email" placeholder="Your email" />
+          <textarea placeholder="Your message"></textarea>
+          <button class="btn primary" type="button">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 King Tech IT Services. All rights reserved. Designed and developed by King Tech IT Services.
+  </footer>
+</body>
+
+</html>
